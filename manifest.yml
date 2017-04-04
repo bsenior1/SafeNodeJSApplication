@@ -1,0 +1,10 @@
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: ClemsonExtremeNodeJSApp
+  host: ClemsonExtremeNodeJSApp
+  disk_quota: 1024M
+  services:
+  - Weather Company Data-z4
