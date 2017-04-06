@@ -26,7 +26,7 @@ var trafficSetup = function() {
 			locationString += response.long1 + "," + response.lat1 + "," + response.long2 + "," + response.lat2;
 			
 			console.log("TRAFFIC!!!");
-			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/"+locationString+"?key=Akl3RNr5drLME8fYbDEpoi--QuIbaK3aIgFZR7oycJ5TdY12QYZMs4D81I9TgzEX"
+			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/"+locationString+"?key=UK711zqgqMLfjlFqwIO4~DxuuLzf10bzPBAN9tuiIhA~AqjTOBkeWuGZMjUKmlPx2oy0DxMJj4SFqvIAgZDNGC-eCp0Ch4DwO9l6ZXa4TNGe"
 			request.get(trafficURL, {
 				json: true
 			},
