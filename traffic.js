@@ -22,11 +22,11 @@ var trafficSetup = function() {
 		}
 		else
 		{
-			var locationString = "";
-			locationString += response.long1 + "," + response.lat1 + "," + response.long2 + "," + response.lat2;
+			//var locationString = "";
+			//locationString += response.long1 + "," + response.lat1 + "," + response.long2 + "," + response.lat2;
 			
 			console.log("TRAFFIC!!!");
-			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/"+locationString+"?key=Akl3RNr5drLME8fYbDEpoi--QuIbaK3aIgFZR7oycJ5TdY12QYZMs4D81I9TgzEX"
+			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/33,-84,35,-85?key=Akl3RNr5drLME8fYbDEpoi--QuIbaK3aIgFZR7oycJ5TdY12QYZMs4D81I9TgzEX"
 			request.get(trafficURL, {
 				json: true
 			},
