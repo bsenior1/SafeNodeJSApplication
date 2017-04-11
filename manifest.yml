@@ -3,8 +3,8 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: orangesdk
-  host: orangesdk
+  name: ClemsonExtremeNodeJSApp
+  host: ClemsonExtremeNodeJSApp
   disk_quota: 1024M
   services:
-  - Extreme Orange Weather API
+  - Weather Company Data-z4

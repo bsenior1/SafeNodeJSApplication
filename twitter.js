@@ -1,4 +1,4 @@
-var twitterSetup = function() 
+var twitterSetup = function(deviceClient) 
 {
 	// Self Referentiation
 	var self = this;
@@ -27,17 +27,17 @@ var twitterSetup = function()
 		else 
 		{
 			var locationString = "";
-			locationString += response.long1 + "," + response.lat1 + "," + response.long2 + "," + response.lat2;
+			locationString += response.long1 + "," + response.lat2 + "," + response.long2 + "," + response.lat1;
 			
 			// NOTE: tweets are in a stream format
 			var stream = twitterClient.stream("statuses/filter", { locations: locationString });
-			stream.on("data", function(event) {
-				//console.log(event && event.text);
+			stream.on('data', function(event) {
+				console.log(event && event.text);
 				deviceClient.publish("status", "json", '{"d": {"text": ' + event.text + '}}');
 			});
 			
 			stream.on('error', function(error) {
-				throw error;
+				console.log("Error: " + error);
 			});
 		}
 		++timesGetTwitterCalled;
