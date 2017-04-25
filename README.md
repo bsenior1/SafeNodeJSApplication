@@ -16,15 +16,17 @@ The Node.js Application demonstrates the collection of various forms of informat
 	* IOT_TYPE
 	* WEATHER_CALL_URL
 5. Navigate to and open manifest.yml:
-	* Edit the "name" and "host" field to the name of the Cloud Foundary application to be deployed 
+	* Edit the "name" and "host" field to the name of the Cloud Foundary application to be deployed
+	* Edit the "services" field to the name of the linked weather service
 6. Navigate to and open index.html:
 	* Edit the main form's action field to the following format:
 		* https://nameofcloudfoundaryapplication.mybluemix.net/process_get
-
+		
 	
 ## Run on Bluemix - General Deploy
 1. Navigate to and open manifest.yml:
 	* Edit the "name" and "host" field to the name of the Cloud Foundary application to be deployed 
+	* Edit the "services" field to the name of the linked weather service
 2. Navigate to and open index.html:
 	* Edit the main form's action field to the following format:
 		* https://nameofcloudfoundaryapplication.mybluemix.net/process_get
