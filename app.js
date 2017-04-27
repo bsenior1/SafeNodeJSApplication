@@ -67,9 +67,9 @@ app.get('/process_get', function(req, res)
 	}, 10000);
 
 	// Perform Traffic Functionality every N milliseconds
-	trafficVarInstance.trafficIntervalID = setInterval(function() {
-		trafficVarInstance.getTraffic(request, response);
-	}, 10000);
+	//trafficVarInstance.trafficIntervalID = setInterval(function() {
+		//trafficVarInstance.getTraffic(request, response);
+	//}, 10000);
 });
 
 
