@@ -22,7 +22,7 @@ var trafficSetup = function(deviceClient) {
 			//According to bing api documentation schema is (South Latitude, West Longitude, North Latitude, East Longitude)
 			locationString += response.lat2 + "," + response.long1 + "," + response.lat1 + "," + response.long2;
 			
-			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/"+locationString+"?key=Aod2Rih555PbFm63kw8F8ddPMl4eruIFlGY2B8DEWYikoaWyNXpO_TxhKeyNU_Ot"
+			var trafficURL = "http://dev.virtualearth.net/REST/v1/Traffic/Incidents/"+locationString+"?key=Aq6MYE72lWQ2P7-hBJ9wvKkiGkPj5BlfKKtZo8tfYMuoaEqDxO70ckYb26iViXhL"
 			request.get(trafficURL, {
 				json: true
 			},
