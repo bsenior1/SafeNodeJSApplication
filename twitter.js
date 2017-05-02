@@ -1,5 +1,13 @@
 var twitterSetup = function(deviceClient) 
 {
+	var watson = require('watson-developer-cloud');
+	var tone_analyzer = watson.tone_analyzer({
+		username: '078725df-30c4-4cd2-9a9e-a66a09b74125',
+		password: 'yhYMQTt17GqJ',
+		version: 'v3',
+		version_date: '2016-05-19'
+	});
+	
 	// Self Referentiation
 	var self = this;
 	
@@ -32,8 +40,27 @@ var twitterSetup = function(deviceClient)
 			// NOTE: tweets are in a stream format
 			var stream = twitterClient.stream("statuses/filter", { locations: locationString });
 			stream.on('data', function(event) {
+				tone_analyzer.tone({ text: event.text },
+				  function(err, tone) {
+					if (err)
+					  console.log(err);
+					else
+						console.log('{"d":{"type" : "twitter", "text" : ' + "\"" + event.text + "\"" 
+					+ ", \"anger\" : " + tone.document_tone.tone_categories[0].tones[0].score
+					+ ", \"disgust\" : " + tone.document_tone.tone_categories[0].tones[1].score
+					+ ", \"fear\" : " + tone.document_tone.tone_categories[0].tones[2].score
+					+ ", \"joy\" : " + tone.document_tone.tone_categories[0].tones[3].score
+					+ ", \"sadeness\" : " + tone.document_tone.tone_categories[0].tones[4].score + '}}');
+					  //console.log(JSON.stringify(tone, null, 2));
+				});
+				
 				console.log(event && event.text);
-				deviceClient.publish("status","json",'{"d":{"type" : "twitter", "text" : ' + "\"" + event.text + "\"" + '}}');
+				deviceClient.publish("status","json",'{"d":{"type" : "twitter", "text" : ' + "\"" + event.text + "\""
+					+ ", \"anger\" : " + tone.document_tone.tone_categories[0].tones[0].score
+					+ ", \"disgust\" : " + tone.document_tone.tone_categories[0].tones[1].score
+					+ ", \"fear\" : " + tone.document_tone.tone_categories[0].tones[2].score
+					+ ", \"joy\" : " + tone.document_tone.tone_categories[0].tones[3].score
+					+ ", \"sadeness\" : " + tone.document_tone.tone_categories[0].tones[4].score + '}}');
 			});
 			
 			stream.on('error', function(error) {
